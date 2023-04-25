@@ -4,11 +4,8 @@ import paqG07.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import java.io.*;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 public class V1 extends JFrame {
 
@@ -41,6 +38,9 @@ public class V1 extends JFrame {
     private JTextField hubTextField;
     private JButton actualizarHubButton;
     private JTextField hºHubTextField;
+    private JButton chequeadoEnAduanasButton;
+    private JTextField hubadu;
+    private JTextField pesoadu;
     private JTextField hub;
 
     private void createUIComponents() {
@@ -200,6 +200,14 @@ public class V1 extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     if (Integer.parseInt(hºHubTextField.getText()) < 3) {
                         matriz.setText(p1.a[Integer.parseInt(hºHubTextField.getText())].tostring());
+                    }
+                }
+            });
+            chequeadoEnAduanasButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (Integer.parseInt(hubadu.getText()) < 3) {
+                        aduanas aduan = new aduanas(p1.aduanas(Integer.parseInt(hubadu.getText()), Integer.parseInt(pesoadu.getText())));
                     }
                 }
             });
